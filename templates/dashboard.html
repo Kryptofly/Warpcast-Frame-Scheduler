@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scheduled Frames</title>
+</head>
+<body>
+    <h1>Scheduled Frames</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Frame URL</th>
+                <th>Post Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for schedule in schedules %}
+            <tr>
+                <td>{{ schedule.frame_url }}</td>
+                <td>{{ schedule.post_time }}</td>
+                <td><a href="{{ url_for('delete_schedule', job_id=schedule.id) }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
